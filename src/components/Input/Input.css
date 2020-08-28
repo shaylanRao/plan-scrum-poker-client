@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  padding-block-start: 5vw;
+  padding: 1vw;
+  padding-top: 5vh;
+  text-align: center;
+}
+
+.input {
+  border: none;
+  border-top-left-radius: 1vw;
+  border-bottom-left-radius: 1vw;
+  padding: 2%;
+  width: 80%;
+  font-size: 0.9em;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.sendButton {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #2979ff;
+  display: inline-block;
+  border: none;
+  width: 20%;
+  border-top-right-radius: 1vw;
+  border-bottom-right-radius: 1vw;
+}
+
+.sendButton:hover {
+  background: #2978ffbe;
+}
+
+.input {
+  height: 3.5vw;
+}

@@ -1,0 +1,21 @@
+.button {
+  width: 15vw;
+  height: 4.3vh;
+  text-align: center;
+}
+
+.button b {
+  font-size: 1.2vw;
+}
+
+.notallchosen {
+  text-align: center;
+}
+
+.ui.negative.button {
+  background-color: #8b1e2af3;
+}
+
+.allchosen {
+  text-align: center;
+}

@@ -1,0 +1,64 @@
+.outercontainer {
+  display: flex;
+  justify-content: space-around;
+
+  align-items: center;
+  height: 100vh;
+  background-color: #1a1a1d;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #206810;
+  border-radius: 1vw;
+  height: 70vh;
+  width: 50vw;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .outerContainer {
+    height: 100%;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1200px) {
+  .container {
+    width: 60%;
+  }
+}
+
+.userList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #92541181;
+  border-radius: 8px;
+  height: 70vh;
+  width: 25vw;
+  padding: 0.8vw;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(26, 38, 77);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 4vw;
+}
+
+.navbar a {
+  float: center;
+  display: block;
+  color: #bdbdbd;
+  text-align: center;
+  padding: 1vw 1vw;
+  text-decoration: none;
+  font-size: 1.6vw;
+}

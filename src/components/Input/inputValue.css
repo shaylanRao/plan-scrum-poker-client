@@ -1,0 +1,64 @@
+.inputform {
+  justify-content: space-around;
+  text-align: center;
+  padding-bottom: 8vh;
+}
+
+.pokerchip {
+  margin: 0.5em;
+  font-size: 1.2em;
+  display: inline-flexbox;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 5em;
+  height: 5em;
+  background: #555;
+  border-radius: 50%;
+  position: relative;
+  border: 0.7vw dashed white;
+  transition: all 0.5s ease;
+  backface-visibility: hidden;
+  text-align: center;
+  /* ^ Doesn't function as should */
+  color: white;
+  font-weight: 300;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.pokerchip.red {
+  background: #c41e36;
+}
+
+.pokerchip.orange {
+  background: #ea6124;
+}
+
+.pokerchip.green {
+  background: #128a4f;
+}
+
+.pokerchip.black {
+  background: #4d4d4d;
+}
+
+.pokerchip.purple {
+  background: #662f94;
+}
+
+.pokerchip.yellow {
+  background: #d1912b;
+}
+
+.pokerchip.flat {
+  box-shadow: 0 0 0 0.1vw #fff;
+}
+
+.pokerchip.flat:hover {
+  transform: rotate(40deg);
+}
+
+.value {
+  background-color: transparent;
+  border: none;
+}
