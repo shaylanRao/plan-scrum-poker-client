@@ -19,7 +19,8 @@ const PokerRoom = (props) => {
   const [message, setMessage] = useState("");
   const [inputValue, setInputValue] = useState(null);
   const [currentMessage, setCurrentMessage] = useState("");
-  const ENDPOINT = "https://plan-scrum-poker.herokuapp.com/";
+  // const ENDPOINT = "https://plan-scrum-poker.herokuapp.com/";
+  const ENDPOINT = "localhost:5000";
   const [admin, setAdmin] = useState(false);
   const [show, setShow] = useState(false);
   const [allChosen, setAllChosen] = useState(true);
@@ -82,10 +83,9 @@ const PokerRoom = (props) => {
     }
   };
 
-  const sendValue = () => {
-    if (inputValue) {
-      console.log("HERE");
-      socket.emit("assignValue", inputValue);
+  const sendValue = (value) => {
+    if (value) {
+      socket.emit("assignValue", value);
     }
   };
 
@@ -115,7 +115,7 @@ const PokerRoom = (props) => {
             />
           </div>
           <div className="userList">
-            <UsersInRoom users={users} show={show} />
+            <UsersInRoom users={users} show={show} userName={name} />
             <DisplayValues
               show={show}
               sendShow={sendShow}
@@ -151,7 +151,7 @@ const PokerRoom = (props) => {
           />
         </div>
         <div className="userList">
-          <UsersInRoom users={users} show={show} />
+          <UsersInRoom users={users} show={show} userName={name} />
         </div>
       </div>
     </div>

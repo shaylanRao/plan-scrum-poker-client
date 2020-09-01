@@ -16,7 +16,7 @@
   background: #555;
   border-radius: 50%;
   position: relative;
-  border: 0.7vw dashed white;
+  border: 0.8rem dashed white;
   transition: all 0.5s ease;
   backface-visibility: hidden;
   text-align: center;

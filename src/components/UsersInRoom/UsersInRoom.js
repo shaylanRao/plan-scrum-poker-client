@@ -4,7 +4,7 @@ import onlineIcon from "../../icons/onlineIcon.png";
 
 import "./UsersInRoom.css";
 
-const UsersInRoom = ({ users, show }) => (
+const UsersInRoom = ({ users, show, userName }) => (
   <div className="UsersInRoom">
     {users ? (
       <div>
@@ -32,6 +32,8 @@ const UsersInRoom = ({ users, show }) => (
                 </td>
                 {value > 0 ? (
                   show ? (
+                    <td className="right aligned">{value}</td>
+                  ) : userName === name ? (
                     <td className="right aligned">{value}</td>
                   ) : (
                     ""

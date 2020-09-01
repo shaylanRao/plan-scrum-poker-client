@@ -24,9 +24,9 @@ function InputValue(props) {
         value="1"
         onClick={(e) => (
           setInputValue(1),
-          sendValue(),
           dispatchBroadcast(props, 1),
-          e.preventDefault()
+          e.preventDefault(),
+          sendValue(1)
         )}
       >
         <div class="pokerchip red flat">
@@ -40,7 +40,7 @@ function InputValue(props) {
           setInputValue(2),
           dispatchBroadcast(props, 2),
           e.preventDefault(),
-          sendValue()
+          sendValue(2)
         )}
       >
         <div class="pokerchip orange flat">
@@ -52,7 +52,7 @@ function InputValue(props) {
         value="3"
         onClick={(e) => (
           setInputValue(3),
-          sendValue(),
+          sendValue(3),
           dispatchBroadcast(props, 3),
           e.preventDefault()
         )}
@@ -66,7 +66,7 @@ function InputValue(props) {
         value="5"
         onClick={(e) => (
           setInputValue(5),
-          sendValue(),
+          sendValue(5),
           dispatchBroadcast(props, 5),
           e.preventDefault()
         )}
@@ -82,7 +82,7 @@ function InputValue(props) {
           setInputValue(8),
           dispatchBroadcast(props, 8),
           e.preventDefault(),
-          sendValue()
+          sendValue(8)
         )}
       >
         <div class="pokerchip purple flat">
@@ -96,7 +96,7 @@ function InputValue(props) {
           setInputValue(13),
           dispatchBroadcast(props, 13),
           e.preventDefault(),
-          sendValue()
+          sendValue(13)
         )}
       >
         <div class="pokerchip yellow flat">
