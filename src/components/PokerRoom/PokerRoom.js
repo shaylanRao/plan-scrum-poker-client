@@ -19,8 +19,8 @@ const PokerRoom = (props) => {
   const [message, setMessage] = useState("");
   const [inputValue, setInputValue] = useState(null);
   const [currentMessage, setCurrentMessage] = useState("");
-  // const ENDPOINT = "https://plan-scrum-poker.herokuapp.com/";
-  const ENDPOINT = "localhost:5000";
+  const ENDPOINT = "https://plan-scrum-poker.herokuapp.com/";
+  // const ENDPOINT = "localhost:5000";
   const [admin, setAdmin] = useState(false);
   const [show, setShow] = useState(false);
   const [allChosen, setAllChosen] = useState(true);
