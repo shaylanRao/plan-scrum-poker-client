@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import queryString from "query-string";
 
 import { connect } from "react-redux";
 import { dispatchNameRoom } from "../Actions";
@@ -14,11 +15,12 @@ function SignIn(props) {
   //console.log("SignIn : props", props);
   //set states for name and room (when signing in)
   const [name, setName] = useState("");
-  const [room, setRoom] = useState("");
+  const roomUrl = queryString.parse(props.location.search).room;
+  const [room, setRoom] = useState(roomUrl);
 
   props.dispatch(dispatchNameRoom(name, room));
-
   //ui for the join page
+  //if (roomUrl !== undefined) {
   return (
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
@@ -32,15 +34,20 @@ function SignIn(props) {
             onChange={(event) => setName(event.target.value)}
           />
         </div>
-        <div>
-          <input
-            placeholder="Room"
-            className="joinInput mt-20"
-            type="text"
-            //sets the room name from user input
-            onChange={(event) => setRoom(event.target.value)}
-          />
-        </div>
+
+        {roomUrl !== undefined ? (
+          ""
+        ) : (
+          <div>
+            <input
+              placeholder="Room"
+              className="joinInput mt-20"
+              type="text"
+              //sets the room name from user input
+              onChange={(event) => setRoom(event.target.value)}
+            />
+          </div>
+        )}
 
         {/* Use redux here instead of query string */}
         <Link

@@ -4,8 +4,11 @@ import UsersInRoom from "../UsersInRoom/UsersInRoom";
 import Input from "../Input/Input";
 import InputValue from "../Input/InputValue";
 import DisplayValues from "../DisplayValues/DisplayValues";
+import queryString from "query-string";
 
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+
 import Messages from "../Messages/Messages";
 
 import "./PokerRoom.css";
@@ -15,12 +18,13 @@ let socket;
 const PokerRoom = (props) => {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
+  const [roomUrl, setRoomUrl] = useState("");
   const [users, setUsers] = useState("");
   const [message, setMessage] = useState("");
   const [inputValue, setInputValue] = useState(null);
   const [currentMessage, setCurrentMessage] = useState("");
-  const ENDPOINT = "https://plan-scrum-poker.herokuapp.com/";
-  // const ENDPOINT = "localhost:5000";
+  //const ENDPOINT = "https://plan-scrum-poker.herokuapp.com/";
+  const ENDPOINT = "localhost:5000";
   const [admin, setAdmin] = useState(false);
   const [show, setShow] = useState(false);
   const [allChosen, setAllChosen] = useState(true);
@@ -33,6 +37,12 @@ const PokerRoom = (props) => {
     socket = io(ENDPOINT);
     setRoom(room);
     setName(name);
+    setRoomUrl(queryString.parse(props.location.search).room);
+
+    if (name === "Initial Name") {
+      console.log("BLANK");
+      sendBack();
+    }
 
     socket.emit("join", { name, room }, (error) => {
       if (error) {
@@ -40,6 +50,8 @@ const PokerRoom = (props) => {
       }
     });
   }, [ENDPOINT]);
+
+  const sendBack = () => {};
   // console.log({ admin });
 
   //render messages list
@@ -92,6 +104,11 @@ const PokerRoom = (props) => {
   if (admin === true) {
     return (
       <div className="">
+        {name === "Initial Name" ? (
+          <Redirect to={`/?room=${roomUrl}`}></Redirect>
+        ) : (
+          ""
+        )}
         <div className="outercontainer">
           <div className="navbar">
             <a>
