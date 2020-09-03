@@ -75,8 +75,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #92541181;
-  background: transparent;
+  /* background: #92541181; */
+  background: #38383f;
   border-radius: 8px;
   height: 70vh;
   width: 25vw;

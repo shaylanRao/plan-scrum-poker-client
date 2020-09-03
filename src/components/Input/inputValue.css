@@ -55,7 +55,11 @@
 }
 
 .pokerchip.flat:hover {
-  transform: rotate(40deg);
+  transform: scale(1.05);
+}
+
+.pokerchip.flat:active {
+  transform: rotate(30deg);
 }
 
 .value {
