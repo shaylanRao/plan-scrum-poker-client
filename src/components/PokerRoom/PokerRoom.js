@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 import UsersInRoom from "../UsersInRoom/UsersInRoom";
 import Input from "../Input/Input";
@@ -101,6 +101,20 @@ const PokerRoom = (props) => {
     }
   };
 
+  //TEST AREA
+  const [copySuccess, setCopySuccess] = useState("");
+  const textAreaRef = useRef(null);
+  //TEST AREA
+
+  function copyToClipboard(e) {
+    textAreaRef.current.select();
+    document.execCommand("copy");
+    // This is just personal preference.
+    // I prefer to not show the whole text area selected.
+    e.target.focus();
+    setCopySuccess("Copied!");
+  }
+
   if (admin === true) {
     return (
       <div className="">
@@ -110,11 +124,22 @@ const PokerRoom = (props) => {
           ""
         )}
         <div className="outercontainer">
-          <div className="navbar">
-            <a>
-              Welcome {name} to room {room}
-            </a>
-          </div>
+          {document.queryCommandSupported("copy") && (
+            <div className="navbar">
+              <a className="welcome">
+                Welcome {name} to room {room}
+              </a>
+              <a className="sharelink" onClick={copyToClipboard}>
+                Copy share link to clipboard{".    " + copySuccess}
+              </a>
+
+              <textarea
+                className="hideme"
+                ref={textAreaRef}
+                value={window.location.href.replace("PokerRoom", "")}
+              />
+            </div>
+          )}
 
           <div className="container">
             <title></title>
@@ -148,13 +173,28 @@ const PokerRoom = (props) => {
 
   return (
     <div className="">
+      {name === "Initial Name" ? (
+        <Redirect to={`/?room=${roomUrl}`}></Redirect>
+      ) : (
+        ""
+      )}
       <div className="outercontainer">
-        <div className="navbar">
-          <a>
-            Welcome {name} to room {room}
-          </a>
-        </div>
+        {document.queryCommandSupported("copy") && (
+          <div className="navbar">
+            <a className="welcome">
+              Welcome {name} to room {room}
+            </a>
+            <a className="sharelink" onClick={copyToClipboard}>
+              Copy share link to clipboard{".    " + copySuccess}
+            </a>
 
+            <textarea
+              className="hideme"
+              ref={textAreaRef}
+              value={window.location.href.replace("PokerRoom", "")}
+            />
+          </div>
+        )}
         <div className="container">
           <title></title>
           <Messages message={currentMessage} />
