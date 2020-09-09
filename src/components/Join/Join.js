@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import queryString from "query-string";
 
 import { connect } from "react-redux";
@@ -21,6 +22,11 @@ function SignIn(props) {
   props.dispatch(dispatchNameRoom(name, room));
   //ui for the join page
   //if (roomUrl !== undefined) {
+
+  const enterRoom = () => {
+    return <Redirect to={`/PokerRoom?room=${room}`}></Redirect>;
+  };
+
   return (
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
@@ -30,8 +36,10 @@ function SignIn(props) {
             placeholder="Name"
             className="joinInput"
             type="text"
+            required="required"
             //sets the name from user input
             onChange={(event) => setName(event.target.value)}
+            // onKeyPress={(event) => (event.key === "Enter" ? "hello" : null)}
           />
         </div>
 
@@ -43,8 +51,12 @@ function SignIn(props) {
               placeholder="Room"
               className="joinInput mt-20"
               type="text"
+              required="required"
               //sets the room name from user input
               onChange={(event) => setRoom(event.target.value)}
+              onKeyPress={(event) =>
+                event.key === "Enter" ? console.log("HERE") : null
+              }
             />
           </div>
         )}
